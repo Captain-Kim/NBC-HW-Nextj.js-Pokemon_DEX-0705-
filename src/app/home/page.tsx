@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useQueryPokemonList } from "../../hooks/useQueryPokemonList";
 import { useState, useEffect } from "react";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 export default function MainPage() {
 
@@ -25,7 +26,7 @@ export default function MainPage() {
     pokemon.korean_name.includes(debouncedSearchText)
   );
 
-  if (isPending) return <div>로딩중</div>;
+  if (isPending) return <LoadingSpinner />;
   if (isError) return <div>에러남</div>;
 
   return (

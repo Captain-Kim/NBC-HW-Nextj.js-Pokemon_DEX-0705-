@@ -46,7 +46,7 @@ export default function MainPage() {
       <main id="main" className="mt-20 p-4 flex flex-wrap justify-center gap-4">
         <div className="poke-list flex flex-wrap justify-center gap-4">
           {filteredPokemonList && filteredPokemonList.map((pokemon) => (
-            <Link href={`/pokemons/${pokemon.id}`} key={pokemon.id}>
+            <Link href={`/detail/${pokemon.id}`} key={pokemon.id}>
               <div className="card w-48 min-h-48 bg-red-900 text-cyan-200 border border-black rounded-lg shadow-md p-2 cursor-pointer transform transition-all hover:scale-105">
                 <h3 className="text-lg font-bold flex justify-between">
                   <span>{pokemon.korean_name}</span>

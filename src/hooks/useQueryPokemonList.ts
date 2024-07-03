@@ -15,7 +15,7 @@ async function fetchPokemonList() {
     }
 }
 
-export const useFetchPokemonList = () => {
+export const useQueryPokemonList = () => {
     const { data, isPending, isError } = useQuery({
         queryKey: ['pokemonList'],
         queryFn: fetchPokemonList,

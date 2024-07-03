@@ -17,6 +17,7 @@
 }
 
 body {
+  margin: 0;
 }
 
 @layer utilities {
@@ -24,3 +25,4 @@ body {
     text-wrap: balance;
   }
 }
+

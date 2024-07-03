@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Pokemon } from '@/types/pokemon';
 import { HydrationBoundary, QueryClient, dehydrate } from '@tanstack/react-query';
+import { Metadata } from 'next';
 
 async function fetchPokemon(id: string): Promise<Pokemon> {
   const response = await fetch(`http://localhost:3000/api/pokemons/${id}`);
@@ -10,6 +11,14 @@ async function fetchPokemon(id: string): Promise<Pokemon> {
   }
   const data: Pokemon = await response.json();
   return data;
+}
+
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const pokemon = await fetchPokemon(params.id);
+  return {
+      title: `${pokemon.korean_name} - 포켓몬 도감`,
+      description: `${pokemon.korean_name}의 상세 정보입니다.`,
+  };
 }
 
 const PokemonPage = async ({ params }: { params: { id: string } }) => {
